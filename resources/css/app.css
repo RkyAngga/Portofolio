@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body { font-family: 'DM Sans', sans-serif; background: #F8F9FA; }
+h1, h2, h3, .display-font { font-family: 'Manrope', sans-serif; }
+::selection { background: #22396F; color: #ffffff; }
+
+@layer components {
+    .container-wide { @apply mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12; }
+    .eyebrow { @apply font-mono text-xs uppercase tracking-[0.22em] text-brand-cream/60; }
+    .section-title { @apply mt-4 text-4xl font-semibold tracking-tight text-brand-cream sm:text-5xl; }
+    .outline-button { @apply inline-flex items-center gap-2 rounded-full border border-brand-cream/20 px-6 py-3 text-sm font-semibold text-brand-cream transition hover:border-brand-cream hover:bg-brand-cream hover:text-brand-deep focus:outline-none focus:ring-2 focus:ring-brand-cream focus:ring-offset-2 focus:ring-offset-brand-deep; }
+    .solid-button { @apply inline-flex items-center gap-2 rounded-full bg-brand-cream px-6 py-3 text-sm font-semibold text-brand-deep transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-brand-cream focus:ring-offset-2 focus:ring-offset-brand-deep; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
+
