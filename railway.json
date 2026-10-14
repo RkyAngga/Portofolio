@@ -1,0 +1,9 @@
+# Railway deployment configuration untuk Laravel
+# Dokumentasi: https://railway.app
+
+# Build script
+npm install
+composer install --no-dev --optimize-autoloader
+
+# Runtime selection
+NIXPACKS_PHP_VERSION=8.2
