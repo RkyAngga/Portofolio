@@ -1,8 +1,8 @@
 {
-  "buildCommand": "npm install && composer install --no-dev --optimize-autoloader",
-  "startCommand": "vendor/bin/heroku-php-apache2 public/",
   "nixpacks": {
     "providers": ["php", "nodejs"],
-    "phpVersion": "8.2"
+    "phpVersion": "8.2",
+    "buildCommand": "npm install && composer install --no-dev --optimize-autoloader && npm run build",
+    "startCommand": "php artisan serve --host=0.0.0.0 --port=$PORT"
   }
 }
