@@ -12,7 +12,6 @@
             <a href="#projects" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition">Projects</a>
             <a href="#contact" class="text-sm font-medium text-gray-600 hover:text-gray-900 transition">Contact</a>
         </div>
-        <a href="{{ route('login') }}" class="text-sm font-medium text-gray-500 hover:text-gray-700 transition">Admin</a>
     </nav>
 </header>
 
