@@ -219,7 +219,6 @@
 <footer class="border-t border-gray-200 bg-gray-50 py-12">
     <div class="container-wide text-center text-sm text-gray-500">
         <p>&copy; {{ date('Y') }} {{ $profile->full_name ?? 'Portfolio' }}. All rights reserved.</p>
-        <p class="mt-2">Built with Laravel, Tailwind CSS, and passion for web development.</p>
     </div>
 </footer>
 @endsection
