@@ -12,6 +12,10 @@ class PortfolioController extends Controller
 {
     public function index(): View
     {
+        $skillsQuery = Skill::orderBy('category')->orderBy('order_index')->get();
+        $projectsQuery = Project::with('skills')->orderByDesc('is_featured')->orderBy('order_index')->get();
+        $experiencesQuery = Experience::orderByDesc('start_date')->get();
+
         return view('portfolio.index', [
             'profile' => Profile::query()->first() ?? new Profile([
                 'full_name' => 'Portfolio',
@@ -20,9 +24,12 @@ class PortfolioController extends Controller
                 'about_me' => 'Professional software engineer with expertise in web development, system design, and modern architecture.',
                 'avatar_url' => '/images/profile.jpg',
             ]),
-            'projects' => Project::with('skills')->orderByDesc('is_featured')->orderBy('order_index')->get(),
-            'skills' => Skill::orderBy('category')->orderBy('order_index')->get()->groupBy('category'),
-            'experiences' => Experience::orderByDesc('start_date')->get(),
+            'projects' => $projectsQuery,
+            'skills' => $skillsQuery->groupBy('category'),
+            'experiences' => $experiencesQuery,
+            'projectsCount' => $projectsQuery->count(),
+            'skillsCount' => $skillsQuery->count(),
+            'experiencesCount' => $experiencesQuery->count(),
         ]);
     }
 }
