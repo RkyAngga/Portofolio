@@ -11,6 +11,13 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+// Temporary: Cek versi PHP (HAPUS setelah verifikasi!)
+Route::get('/php-version', fn() => response()->json([
+    'php' => PHP_VERSION,
+    'sapi' => php_sapi_name(),
+    'patched' => version_compare(PHP_VERSION, '8.2.35', '>=') ? 'YES' : 'NO - UPDATE SEGERA',
+]));
+
 // Public routes
 Route::get('/', [PortfolioController::class, 'index'])->name('home');
 Route::get('/dashboard', fn() => redirect()->route('admin.dashboard'))->name('dashboard');
