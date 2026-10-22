@@ -15,3 +15,6 @@ cmds = ["npm run build", "php artisan config:cache", "php artisan route:cache"]
 
 [deploy]
 startCommand = "php artisan migrate --force && php artisan serve --host=0.0.0.0 --port=$PORT"
+
+# Force rebuild to pull latest PHP 8.2.35 patch (CVE-2026-109618, CVE-2026-109619)
+# Rebuild triggered: 2026-10-22
